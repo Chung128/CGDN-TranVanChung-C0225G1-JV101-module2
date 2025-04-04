@@ -4,12 +4,17 @@ import java.util.Scanner;
 
 public class ChuyenDoiTienTe {
     public static void main(String[] args) {
-        int VND = 23000;
         int USD;
+        double VND;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Nhập số tiền USD muốn qui đổi");
         USD = scanner.nextInt();
-        int quidoi = USD * VND;
-        System.out.println(USD + " USD bằng" + quidoi + " VND");
+        System.out.println("Nhập số tiền VND muốn qui đổi");
+        VND = scanner.nextInt();
+        int quyDoi = USD * 23000;
+        double quiDoi1 = VND / 23000;
+        String lamTron = String.format("%.5f", quiDoi1);
+        System.out.println(USD + " USD bằng" + quyDoi + " VND");
+        System.out.println(VND + " VND bằng" + lamTron + " USD");
     }
 }
