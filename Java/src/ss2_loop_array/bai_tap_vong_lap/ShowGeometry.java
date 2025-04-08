@@ -1,4 +1,4 @@
-package ss2_loop_array.bai_tap;
+package ss2_loop_array.bai_tap_vong_lap;
 
 import java.util.Scanner;
 

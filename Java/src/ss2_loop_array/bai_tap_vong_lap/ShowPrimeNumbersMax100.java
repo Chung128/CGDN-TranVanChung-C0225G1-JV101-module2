@@ -1,4 +1,4 @@
-package ss2_loop_array.bai_tap;
+package ss2_loop_array.bai_tap_vong_lap;
 
 public class ShowPrimeNumbersMax100 {
     public static void main(String[] args) {
