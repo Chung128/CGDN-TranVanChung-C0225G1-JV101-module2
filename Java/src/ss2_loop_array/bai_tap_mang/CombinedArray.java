@@ -8,7 +8,7 @@ public class CombinedArray {
         System.out.println("enter element array 1");
         int sizeArr1;
         System.out.println("enter element array 2");
-            int sizeArr2;
+        int sizeArr2;
         while (true) {
             sizeArr1 = sc.nextInt();
             sizeArr2 = sc.nextInt();
@@ -26,10 +26,6 @@ public class CombinedArray {
         for (int i = 0; i < arr2.length; i++) {
             arr2[i] = sc.nextInt();
         }
-//        int length1 = 3;
-//        int length2 = 4;
-//        int[] arr1 = {3, 4, 6};
-//        int[] arr2 = {5, 7, 9, 8};
         int[] arr3 = new int[sizeArr1 + sizeArr2];
         for (int i = 0; i < arr1.length; i++) {
             arr3[i] = arr1[i];
