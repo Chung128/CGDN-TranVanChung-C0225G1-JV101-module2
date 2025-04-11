@@ -1,4 +1,4 @@
-package ss5_access_modifier;
+package ss5_access_modifier.bai_tap_crud;
 
 public class StudentsList {
     public int id;
