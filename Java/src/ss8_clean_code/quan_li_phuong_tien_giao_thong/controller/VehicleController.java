@@ -1,16 +1,23 @@
 package ss8_clean_code.quan_li_phuong_tien_giao_thong.controller;
 
 import ss8_clean_code.quan_li_phuong_tien_giao_thong.entity.Car;
+import ss8_clean_code.quan_li_phuong_tien_giao_thong.entity.MotoBike;
+import ss8_clean_code.quan_li_phuong_tien_giao_thong.entity.Truck;
 import ss8_clean_code.quan_li_phuong_tien_giao_thong.service.CarService;
-import ss8_clean_code.quan_li_phuong_tien_giao_thong.view.CarView;
+import ss8_clean_code.quan_li_phuong_tien_giao_thong.service.MotoBikeService;
+import ss8_clean_code.quan_li_phuong_tien_giao_thong.service.TruckService;
+import ss8_clean_code.quan_li_phuong_tien_giao_thong.view.VehicleView;
 
-import java.util.List;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class VehicleController {
-   private static Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in);
+
     public static void displayVehicle() {
-        CarService busService = new CarService();
+        CarService carService = new CarService();
+        TruckService truckService = new TruckService();
+        MotoBikeService motoBikeService = new MotoBikeService();
         do {
             System.out.println("chọn loại xe .\n" +
                     "1. Hiển thị ôtô. \n" +
@@ -23,29 +30,32 @@ public class VehicleController {
                 switch (choose) {
                     case 1:
                         System.out.println("Danh sách xe khách :");
-                        List<Car> buses = busService.findAll();
-                        CarView.displayBus(buses);
+                        ArrayList<Car> cars = carService.findAll();
+                        VehicleView.displayBus(cars);
                         return;
                     case 2:
-
-                        break;
+                        System.out.println("Danh sách xe tải : ");
+                        ArrayList<Truck> trucks = truckService.findAll();
+                        VehicleView.displayTruck(trucks);
+                        return;
                     case 3:
-                        // code xóa
-                        System.out.println("chức năng xóa");
-                        break;
-                    case 4:
+                        System.out.println("Danh sách xe máy : ");
+                        ArrayList<MotoBike> motoBikes = motoBikeService.findAll();
+                        VehicleView.displayMotoBike(motoBikes);
                         return;
                     default:
                 }
-            }else {
+            } else {
                 System.out.println("chọn lại loại xe.");
             }
         } while (true);
     }
 
 
-    public static void addVehicle(){
-        CarService busService = new CarService();
+    public static void addVehicle() {
+        CarService carService = new CarService();
+        TruckService truckService = new TruckService();
+        MotoBikeService motoBikeService = new MotoBikeService();
         do {
             System.out.println("chọn loại xe muốn thêm.\n" +
                     "1. thêm ôtô. \n" +
@@ -55,22 +65,29 @@ public class VehicleController {
             if (choose == 1 || choose == 2 || choose == 3) {
                 switch (choose) {
                     case 1:
-                        Car bus = CarView.inputDataForBus();
-                        busService.add(bus);
-                       List<Car> buses = busService.findAll();
-                        CarView.displayBus(buses);
+                        Car car = VehicleView.inputDataForCar();
+                        carService.add(car);
+                        System.out.println("Danh sách xe khách :");
+                        ArrayList<Car> cars = carService.findAll();
+                        VehicleView.displayBus(cars);
                         return;
                     case 2:
-
-                        break;
+                        Truck truck = VehicleView.inputDataForTruck();
+                        truckService.add(truck);
+                        System.out.println("Danh sách xe tải : ");
+                        ArrayList<Truck> trucks = truckService.findAll();
+                        VehicleView.displayTruck(trucks);
+                        return;
                     case 3:
-
-                        break;
-                    case 4:
+                        MotoBike motoBike = VehicleView.inputDataForMotoBike();
+                        motoBikeService.add(motoBike);
+                        System.out.println("Danh sách xe máy : ");
+                        ArrayList<MotoBike> motoBikes = motoBikeService.findAll();
+                        VehicleView.displayMotoBike(motoBikes);
                         return;
                     default:
                 }
-            }else {
+            } else {
                 System.out.println("chọn lại loại xe.");
             }
         } while (true);

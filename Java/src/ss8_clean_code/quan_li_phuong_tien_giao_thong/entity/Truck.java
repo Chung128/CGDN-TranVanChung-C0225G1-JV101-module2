@@ -18,9 +18,9 @@ public class Truck extends Vehicle {
 
     @Override
     public String toString() {
-        return "XeTai{" + "\n" +
-                super.toString() +"\n" +
-                "trongTai=" + trongTai +"\n" +
+        return "XeTai{" +
+                super.toString() +
+                "   trongTai=" + trongTai +
                 '}';
     }
 }

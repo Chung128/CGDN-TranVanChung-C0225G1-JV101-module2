@@ -18,9 +18,9 @@ public class MotoBike extends Vehicle {
 
     @Override
     public String toString() {
-        return "XeMay{" + "\n" +
-                super.toString() +"\n" +
-                "congSuat=" + congSuat +"\n" +
+        return "XeMay{" +
+                super.toString() +
+                "   congSuat=" + congSuat +
                 '}';
     }
 }
