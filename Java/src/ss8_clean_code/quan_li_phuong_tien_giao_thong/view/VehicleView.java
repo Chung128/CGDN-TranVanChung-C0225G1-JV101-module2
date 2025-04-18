@@ -82,7 +82,7 @@ public class VehicleView {
         int manufactorYear = Integer.parseInt(scanner.nextLine());
         System.out.print("Nhập tên chủ xe : ");
         String carOwnerName = scanner.nextLine();
-        System.out.print("Nhập trọng công suất : ");
+        System.out.print("Nhập công suất : ");
         int capacity = Integer.parseInt(scanner.nextLine());
         MotoBike motoBike=new MotoBike(licensePlate, carBrand, manufactorYear,carOwnerName,capacity);
         return motoBike;

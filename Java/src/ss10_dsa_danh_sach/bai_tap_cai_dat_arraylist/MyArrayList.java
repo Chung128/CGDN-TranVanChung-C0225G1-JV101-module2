@@ -39,7 +39,7 @@ public class MyArrayList<E> {
         return true;
     }
 
-    public void add(E elements, int index) {
+    public void insert(E elements, int index) {
         if (index > element.length) {
             throw new IllegalArgumentException("index " + index);
         } else if (element.length == size) {
@@ -70,5 +70,16 @@ public class MyArrayList<E> {
             throw new IllegalArgumentException("index " + index + ",size " + size);
         }
         return (E) element[index];
+    }
+
+    public void remove(int index) {
+        if (index < 0 || index >= size) {
+            throw new IllegalArgumentException("index " + index);
+        }
+        for (int i = index; i < element.length - 1; i++) {
+            element[i] = element[i + 1];
+        }
+        element[size] = null;
+        size--;
     }
 }

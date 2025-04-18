@@ -45,9 +45,13 @@ public class MyArrayListTest {
         student.add(b);
         student.add(c);
         student.add(d);
-        System.out.println("size = " + student.size());
+//        student.remove(2);
+//        student.clear();
+        student.insert(c,1);
         for (int i = 0; i < student.size(); i++) {
             System.out.println("element " + (i + 1) + " : " + student.get(i));
         }
+        System.out.println("size = " + student.size());
+//        student.get(5);
     }
 }
