@@ -34,11 +34,13 @@ public class ViewProduct {
         return name;
     }
     public static ProductList editProduct(){
+        System.out.println("Nhập mã sản phẩm ");
+        int id=Integer.parseInt(scanner.nextLine());
         System.out.print("Nhập giá bán ");
         double price= Integer.parseInt(scanner.nextLine());
         System.out.print("Nhập tên hàng ");
         String name=scanner.nextLine();
-        ProductList productList=new ProductList(price,name);
+        ProductList productList=new ProductList(id,price,name);
         return productList;
     }
     public static int search(){
@@ -46,4 +48,5 @@ public class ViewProduct {
         int id=Integer.parseInt(scanner.nextLine());
         return id;
     }
+
 }

@@ -7,11 +7,8 @@ import java.util.ArrayList;
 public interface IRepoProduct {
     ArrayList<ProductList> findAll();
     void add(ProductList productList);
-    void edit(int id,double price,String name);
-
-    void editProduct(int id);
-
+    void editProduct(ProductList productList);
     void deleteById(String name);
     void searchProduct(int id);
-    void sort();
+//    void sortProduct();
 }

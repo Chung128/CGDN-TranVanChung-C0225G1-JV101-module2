@@ -1,9 +1,9 @@
 package ss12_danh_sach_map.bai_tap.xay_dung_chuong_trinh_quan_li_san_pham.repository;
 
 import ss12_danh_sach_map.bai_tap.xay_dung_chuong_trinh_quan_li_san_pham.entity.ProductList;
-import ss12_danh_sach_map.bai_tap.xay_dung_chuong_trinh_quan_li_san_pham.view.ViewProduct;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class RepositoryProduct implements IRepoProduct {
@@ -26,16 +26,11 @@ public class RepositoryProduct implements IRepoProduct {
     }
 
     @Override
-    public void edit(int id, double price, String name) {
-
-    }
-
-    @Override
-    public void editProduct(int id) {
-        for (ProductList productList:product){
-            if (productList.getId()==id){
-                productList.setPrice(ViewProduct.editProduct().getPrice());
-                productList.setNameProduct(ViewProduct.editProduct().getNameProduct());
+    public void editProduct(ProductList updateProduct) {
+        for (ProductList productList : product) {
+            if (productList.getId() == updateProduct.getId()) {
+                productList.setPrice(updateProduct.getPrice());
+                productList.setNameProduct(updateProduct.getNameProduct());
                 return;
             }
         }
@@ -62,7 +57,7 @@ public class RepositoryProduct implements IRepoProduct {
     public void searchProduct(int id) {
         ProductList search = null;
         for (ProductList productList : product) {
-            if (productList.getId()==id) {
+            if (productList.getId() == id) {
                 search = productList;
                 break;
             }
@@ -72,10 +67,5 @@ public class RepositoryProduct implements IRepoProduct {
         } else {
             System.out.println("Không tìm thấy tên sản phẩm .");
         }
-    }
-
-    @Override
-    public void sort() {
-
     }
 }

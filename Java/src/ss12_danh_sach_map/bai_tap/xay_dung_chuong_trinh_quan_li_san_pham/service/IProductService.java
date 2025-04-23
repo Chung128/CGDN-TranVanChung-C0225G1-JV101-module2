@@ -7,8 +7,8 @@ import java.util.ArrayList;
 public interface IProductService {
     ArrayList<ProductList> findAll();
     void add(ProductList productList);
-    void edit(int id);
+    void edit(ProductList productList);
     void delete(String name);
     void search(int id);
-    void sort();
+//    void sort();
 }

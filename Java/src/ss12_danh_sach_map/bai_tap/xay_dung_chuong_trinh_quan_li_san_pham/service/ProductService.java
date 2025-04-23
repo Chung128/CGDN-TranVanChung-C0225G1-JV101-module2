@@ -20,8 +20,8 @@ public class ProductService implements IProductService{
     }
 
     @Override
-    public void edit(int id) {
-        products.editProduct(id);
+    public void edit(ProductList productList) {
+        products.editProduct(productList);
     }
 
     @Override
@@ -34,8 +34,8 @@ public class ProductService implements IProductService{
         products.searchProduct(id);
     }
 
-    @Override
-    public void sort() {
-
-    }
+//    @Override
+//    public void sort() {
+//        products.sortProduct();
+//    }
 }
