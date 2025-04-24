@@ -9,5 +9,7 @@ public interface IServiceProduct {
     void add(Product productList);
     void edit(Product productList);
     void delete(int id);
-    void search(int id);
+    void search(String name);
+    void sortAscending();
+    void sortDescending();
 }

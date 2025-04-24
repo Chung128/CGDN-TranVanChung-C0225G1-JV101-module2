@@ -6,45 +6,49 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ViewProduct {
-    private static Scanner scanner= new Scanner(System.in);
-    public static void displayProduct(ArrayList<Product> productLists){
+    private static Scanner scanner = new Scanner(System.in);
+
+    public static void displayProduct(ArrayList<Product> productLists) {
         for (int i = 0; i < productLists.size(); i++) {
-            if (productLists.get(i)!=null){
+            if (productLists.get(i) != null) {
                 System.out.println(productLists.get(i));
-            }else {
+            } else {
                 break;
             }
         }
     }
-    public static Product inputDataProduct(){
+
+    public static Product inputDataProduct() {
         System.out.print("Nhập mã hàng ");
-        int id=Integer.parseInt(scanner.nextLine());
+        int id = Integer.parseInt(scanner.nextLine());
         System.out.print("Nhập giá bán ");
-        double price= Double.parseDouble(scanner.nextLine());
+        double price = Double.parseDouble(scanner.nextLine());
         System.out.print("Nhập tên hàng ");
-        String name=scanner.nextLine();
-        Product productList=new Product(id,name,price);
+        String name = scanner.nextLine();
+        Product productList = new Product(id, name, price);
         return productList;
     }
 
-    public static int inputIdDelete(){
+    public static int inputIdToDelete() {
         System.out.println("Nhập mã sản phẩm cần xóa");
-        int id =Integer.parseInt(scanner.nextLine());
+        int id = Integer.parseInt(scanner.nextLine());
         return id;
     }
-    public static Product inputIdProduct(){
+
+    public static Product inputIdToEdit() {
         System.out.println("Nhập mã sản phẩm ");
-        int id=Integer.parseInt(scanner.nextLine());
+        int id = Integer.parseInt(scanner.nextLine());
         System.out.print("Nhập giá bán ");
-        double price= Double.parseDouble(scanner.nextLine());
+        double price = Double.parseDouble(scanner.nextLine());
         System.out.print("Nhập tên hàng ");
-        String name=scanner.nextLine();
-        Product productList=new Product(id,name,price);
+        String name = scanner.nextLine();
+        Product productList = new Product(id, name, price);
         return productList;
     }
-    public static int searchId(){
-        System.out.println("Nhập mã sản phẩm muốn tìm ");
-        int id=Integer.parseInt(scanner.nextLine());
-        return id;
+
+    public static String inputIdToSearch() {
+        System.out.println("Nhập tên sản phẩm muốn tìm ");
+        String name = scanner.nextLine();
+        return name;
     }
 }

@@ -9,5 +9,7 @@ public interface IRepoProduct {
     void addProduct(Product product);
     void editProduct(Product product);
     void deleteProduct(int id);
-    void searchProduct(int id);
+    void searchProduct(String name);
+    void sortProductAscending();
+    void sortProductDescending();
 }

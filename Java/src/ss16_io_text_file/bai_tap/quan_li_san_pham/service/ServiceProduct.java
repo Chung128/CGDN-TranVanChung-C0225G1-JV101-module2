@@ -8,7 +8,7 @@ import ss16_io_text_file.bai_tap.quan_li_san_pham.repository.RepoProduct;
 import java.util.ArrayList;
 
 public class ServiceProduct implements IServiceProduct {
-    private IRepoProduct products=new RepoProduct();
+    private IRepoProduct products = new RepoProduct();
 
     @Override
     public ArrayList<Product> findAll() {
@@ -31,7 +31,17 @@ public class ServiceProduct implements IServiceProduct {
     }
 
     @Override
-    public void search(int id) {
-        products.searchProduct(id);
+    public void search(String name) {
+        products.searchProduct(name);
+    }
+
+    @Override
+    public void sortAscending() {
+        products.sortProductAscending();
+    }
+
+    @Override
+    public void sortDescending() {
+        products.sortProductDescending();
     }
 }

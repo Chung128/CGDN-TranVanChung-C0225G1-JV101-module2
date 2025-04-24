@@ -41,4 +41,12 @@ public class ReadAndWriteFile {
         }
         return stringList;
     }
+    //phương thức xóa
+    public static void clearFile(String path){
+        try (FileWriter writer=new FileWriter(path)){
+            writer.write("");
+        }catch (IOException e){
+            System.out.println("chưa xóa hết được");
+        }
+    }
 }
