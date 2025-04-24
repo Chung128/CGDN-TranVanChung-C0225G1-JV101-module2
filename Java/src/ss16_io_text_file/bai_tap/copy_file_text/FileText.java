@@ -5,16 +5,16 @@ import java.io.FileWriter;
 
 public class FileText {
     public static void main(String[] args) {
-        String txt = " Trần Văn Chung";
+        String tt = " Trần Văn Chung";
         try {
-            FileWriter fw = new FileWriter("src/ss16_io_text_file/bai_tap/copy_file_text/data.txt", true);
+            FileWriter fw = new FileWriter("src/ss16_io_text_file/bai_tap/copy_file_text/data.csv.txt", true);
             BufferedWriter bw = new BufferedWriter(fw);
             bw.newLine();
-            bw.write(txt);
+            bw.write(tt);
             bw.close();
             fw.close(); //tạo cái nào ra thì đóng luôn kẻo quên tránh rò dữ liệu
         } catch (Exception e) {
-            System.out.println("tập tin sai");
+            System.out.println("tập tin không tồn tại ");
         }
     }
 }

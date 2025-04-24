@@ -1,19 +1,19 @@
-package ss12_danh_sach_map.bai_tap.xay_dung_chuong_trinh_quan_li_san_pham.controller;
+package ss16_io_text_file.bai_tap.quan_li_san_pham.controller;
 
-import ss12_danh_sach_map.bai_tap.xay_dung_chuong_trinh_quan_li_san_pham.entity.ProductList;
-import ss12_danh_sach_map.bai_tap.xay_dung_chuong_trinh_quan_li_san_pham.service.ProductService;
-import ss12_danh_sach_map.bai_tap.xay_dung_chuong_trinh_quan_li_san_pham.view.ViewProduct;
+import ss16_io_text_file.bai_tap.quan_li_san_pham.entity.Product;
+import ss16_io_text_file.bai_tap.quan_li_san_pham.service.ServiceProduct;
+import ss16_io_text_file.bai_tap.quan_li_san_pham.view.ViewProduct;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Scanner;
 
-public class ProductManager {
+public class Controller {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void DisplayMenu() {
-        ProductService productService = new ProductService();
+        ServiceProduct serviceProduct=new ServiceProduct();
         do {
             System.out.println("------Quản lí sản phẩm------ \n"
                     + "1 . hiển thị danh sách sản phẩm \n"
@@ -31,42 +31,43 @@ public class ProductManager {
                 switch (chose) {
                     case 1:
                         System.out.println("Danh sách sản phẩm : ");
-                        ArrayList<ProductList> productLists = productService.findAll();
+                        ArrayList<Product> productLists = serviceProduct.findAll();
                         ViewProduct.displayProduct(productLists);
                         break;
                     case 2:
-                        ProductList productList = ViewProduct.inputProduct();
-                        productService.add(productList);
+                        Product productList = ViewProduct.inputDataProduct();
+                        serviceProduct.add(productList);
                         System.out.println();
                         System.out.println("Danh sách sản phẩm : ");
-                        ArrayList<ProductList> product = productService.findAll();
+                        ArrayList<Product> product = serviceProduct.findAll();
                         ViewProduct.displayProduct(product);
                         break;
                     case 3:
-                        ProductList productList1 = ViewProduct.editProduct();
-                        productService.edit(productList1);
+                        Product productList1 = ViewProduct.inputIdProduct();
+                        serviceProduct.edit(productList1);
                         System.out.println("Danh sách sản phẩm : ");
-                        ArrayList<ProductList> productLists1 = productService.findAll();
+                        ArrayList<Product> productLists1 = serviceProduct.findAll();
                         ViewProduct.displayProduct(productLists1);
                         break;
                     case 4:
-                        String name = ViewProduct.delete();
-                        productService.delete(name);
+                        int ids = ViewProduct.inputIdDelete();
+                         serviceProduct.delete(ids);
                         break;
                     case 5:
-                        int id = ViewProduct.search();
-                        productService.search(id);
+                        int id = ViewProduct.searchId();
+                        serviceProduct.search(id);
                         break;
                     case 6:
-                        ArrayList<ProductList> newList = productService.findAll();
+                        ArrayList<Product> newList = serviceProduct.findAll();
                         System.out.print("bạn muốn sắp xếp tăng hay giảm : ");
                         int chose1 = scanner.nextInt();
                         if (chose1 == 1 || chose1 == 2) {
                             switch (chose1) {
                                 case 1:
-                                    Collections.sort(newList, new Comparator<ProductList>() {
+                                    System.out.println("sắp xếp tăng dần ");
+                                    Collections.sort(newList, new Comparator<Product>() {
                                         @Override
-                                        public int compare(ProductList sp1, ProductList sp2) {
+                                        public int compare(Product sp1, Product sp2) {
                                             //return Double.compare(sp1.getPrice(), sp2.getPrice());
                                             return (int) (sp1.getPrice() - sp2.getPrice());
                                         }
@@ -75,9 +76,10 @@ public class ProductManager {
 
                                     break;
                                 case 2:
-                                    Collections.sort(newList, new Comparator<ProductList>() {
+                                    System.out.println("sắp xếp giảm dần.");
+                                    Collections.sort(newList, new Comparator<Product>() {
                                         @Override
-                                        public int compare(ProductList sp1, ProductList sp2) {
+                                        public int compare(Product sp1, Product sp2) {
                                             return Double.compare(sp2.getPrice(), sp1.getPrice());
                                         }
                                     });

@@ -49,8 +49,4 @@ public class ProductList {
                 " price= " + price +
                 '}';
     }
-//    @Override
-//    public int compareTo(ProductList o) {
-//        return this.nameProduct.compareTo(o.nameProduct);
-//        return Double.compare(price,o.price);
 }

@@ -10,5 +10,4 @@ public interface IRepoProduct {
     void editProduct(ProductList productList);
     void deleteById(String name);
     void searchProduct(int id);
-//    void sortProduct();
 }
