@@ -8,5 +8,6 @@ import java.util.ArrayList;
 public interface IRepoCar {
     ArrayList<Car> findAll();
     void add(Car car);
-    void deleteLicensePlate(String bienSoXe);
+    void delete(String bienSoXe);
+    void update(Car car);
 }

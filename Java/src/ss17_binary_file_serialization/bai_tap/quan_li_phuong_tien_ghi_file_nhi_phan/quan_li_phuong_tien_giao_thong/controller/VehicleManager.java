@@ -17,11 +17,14 @@ public class VehicleManager {
                     "\n 1.Hiển thị phương tiện" +
                     "\n 2.Thêm mới phương tiện" +
                     "\n 3.Xóa phương tiện" +
-                    "\n 4.Thoát ");
+                    "\n 4.Cập nhật phương tiện" +
+                    "\n 5.Tìm kiếm phương tiện" +
+                    "\n 6.Sắp xếp phương tiện" +
+                    "\n 7.Thoát ");
             Scanner scanner = new Scanner(System.in);
             System.out.println("Chọn chức năng : ");
             int choose = Integer.parseInt(scanner.nextLine());
-            if (choose == 1 || choose == 2 || choose == 3) {
+            if (choose >= 1 && choose <= 7) {
                 switch (choose) {
                     case 1:
                         VehicleController.displayVehicle();
@@ -30,10 +33,14 @@ public class VehicleManager {
                         VehicleController.addVehicle();
                         break;
                     case 3:
-                        String numberPlate = VehicleView.delete();
+                        String numberPlate = VehicleView.inputLicensePlace();
                         carService.delete(numberPlate);
                         break;
                     case 4:
+                        VehicleController.updateVehicle();
+                    case 5:
+                    case 6:
+                    case 7:
                         System.out.println("Đã kết thúc chương trình");
                         return;
                     default:

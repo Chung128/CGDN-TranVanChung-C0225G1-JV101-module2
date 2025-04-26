@@ -92,4 +92,44 @@ public class VehicleController {
             }
         } while (true);
     }
+    public static void updateVehicle() {
+        CarService carService = new CarService();
+        TruckService truckService = new TruckService();
+        MotoBikeService motoBikeService = new MotoBikeService();
+        do {
+            System.out.println("chọn loại xe muốn cập nhật.\n" +
+                    "1. cập nhật ôtô. \n" +
+                    "2. cập nhật xe tải. \n" +
+                    "3. cập nhật xe máy.\n ");
+            int choose = Integer.parseInt(scanner.nextLine());
+            if (choose == 1 || choose == 2 || choose == 3) {
+                switch (choose) {
+                    case 1:
+                        Car car = VehicleView.inputDataUpdateForCar();
+                        carService.update(car);
+                        System.out.println("Danh sách xe khách :");
+                        ArrayList<Car> cars = carService.findAll();
+                        VehicleView.displayBus(cars);
+                        return;
+                    case 2:
+                        Truck truck = VehicleView.inputDataUpdateForTruck();
+                        truckService.add(truck);
+                        System.out.println("Danh sách xe tải : ");
+                        ArrayList<Truck> trucks = truckService.findAll();
+                        VehicleView.displayTruck(trucks);
+                        return;
+                    case 3:
+                        MotoBike motoBike = VehicleView.inputDataUpdateForMotoBike();
+                        motoBikeService.add(motoBike);
+                        System.out.println("Danh sách xe máy : ");
+                        ArrayList<MotoBike> motoBikes = motoBikeService.findAll();
+                        VehicleView.displayMotoBike(motoBikes);
+                        return;
+                    default:
+                }
+            } else {
+                System.out.println("chọn lại loại xe.");
+            }
+        } while (true);
+    }
 }

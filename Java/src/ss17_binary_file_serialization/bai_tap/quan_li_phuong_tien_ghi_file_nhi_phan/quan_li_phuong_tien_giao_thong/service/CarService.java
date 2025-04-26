@@ -21,7 +21,12 @@ public class CarService implements ICarService {
 
     @Override
     public void delete(String bienSoXe) {
-        cars.deleteLicensePlate(bienSoXe);
+        cars.delete(bienSoXe);
+    }
+
+    @Override
+    public void update(Car car) {
+        cars.update(car);
     }
 }
 

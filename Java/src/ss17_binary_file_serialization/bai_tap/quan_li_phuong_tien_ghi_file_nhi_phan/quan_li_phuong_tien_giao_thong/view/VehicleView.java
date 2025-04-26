@@ -111,7 +111,7 @@ public class VehicleView {
         } while (true);
     }
 
-    public static String delete() {
+    public static String inputLicensePlace() {
         do {
             try {
                 System.out.println("Nhập biển số cần xóa");
@@ -119,6 +119,74 @@ public class VehicleView {
                 return licensePlate;
             } catch (Exception e) {
                 System.out.println("Nhập sai định dạng !");
+            }
+        } while (true);
+    }
+    public static Car inputDataUpdateForCar(){
+        do {
+            try {
+                System.out.println("Chức năng thêm mới");
+                System.out.print("Nhập biển số : ");
+                String licensePlate = scanner.nextLine();
+                System.out.print("Nhập hãng sản xuất : ");
+                String carBrand = scanner.nextLine();
+                System.out.print("Nhập năm sản xuất : ");
+                int manufactorYear = Integer.parseInt(scanner.nextLine());
+                System.out.print("Nhập loại xe : ");
+                String vehicleType = scanner.nextLine();
+                System.out.print("Nhập tên chủ xe : ");
+                String carOwnerName = scanner.nextLine();
+                System.out.print("Nhập số chỗ ngồi : ");
+                int numberOfSeats = Integer.parseInt(scanner.nextLine());
+                Car car = new Car(licensePlate, carBrand, manufactorYear, carOwnerName, numberOfSeats, vehicleType);
+                return car;
+            } catch (Exception e) {
+                System.out.println("nhập sai định dạng.vui lòng nhập lại !");
+            }
+        } while (true);
+    }
+    public static Truck inputDataUpdateForTruck(){
+        Truck truck = null;
+        do {
+            try {
+                System.out.println("Chức năng thêm mới");
+                System.out.print("Nhập biển số : ");
+                String licensePlate = scanner.nextLine();
+                System.out.print("Nhập hãng sản xuất : ");
+                String carBrand = scanner.nextLine();
+                System.out.print("Nhập năm sản xuất : ");
+                int manufactorYear = Integer.parseInt(scanner.nextLine());
+                System.out.print("Nhập tên chủ xe : ");
+                String carOwnerName = scanner.nextLine();
+                System.out.print("Nhập trọng tải : ");
+                int vehicleWeight = Integer.parseInt(scanner.nextLine());
+                truck = new Truck(licensePlate, carBrand, manufactorYear, carOwnerName, vehicleWeight);
+                break;
+            } catch (Exception e) {
+                System.out.println("nhập sai định dạng.vui lòng nhập lại !");
+            }
+        } while (true);
+
+        return truck;
+    }
+    public static MotoBike inputDataUpdateForMotoBike(){
+        do {
+            try {
+                System.out.println("Chức năng thêm mới");
+                System.out.print("Nhập biển số : ");
+                String licensePlate = scanner.nextLine();
+                System.out.print("Nhập hãng sản xuất : ");
+                String carBrand = scanner.nextLine();
+                System.out.print("Nhập năm sản xuất : ");
+                int manufactorYear = Integer.parseInt(scanner.nextLine());
+                System.out.print("Nhập tên chủ xe : ");
+                String carOwnerName = scanner.nextLine();
+                System.out.print("Nhập công suất : ");
+                int capacity = Integer.parseInt(scanner.nextLine());
+                MotoBike motoBike = new MotoBike(licensePlate, carBrand, manufactorYear, carOwnerName, capacity);
+                return motoBike;
+            } catch (Exception e) {
+                System.out.println("nhập sai định dạng.vui lòng nhập lại !");
             }
         } while (true);
     }

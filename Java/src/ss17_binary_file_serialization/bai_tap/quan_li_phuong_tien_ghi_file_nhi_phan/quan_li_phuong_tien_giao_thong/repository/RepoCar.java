@@ -25,19 +25,39 @@ public class RepoCar implements IRepoCar {
     }
 
     @Override
-    public void deleteLicensePlate(String bienSoXe) {
+    public void delete(String bienSoXe) {
         List<Car> cars=ReadAndWriteBinaryFile.readBinatyCarFile(VEHICLE_DAT_FILE);
-        Car xeCanXoa = null;
+        Car deleteCar = null;
         for (Car car : cars) {
             if (car.getBienKiemSoat().equalsIgnoreCase(bienSoXe)) {
-                xeCanXoa = car;
+                deleteCar = car;
                 break;
             }
         }
-        if (xeCanXoa != null) {
-            cars.remove(xeCanXoa);
+        if (deleteCar != null) {
+            cars.remove(deleteCar);
             ReadAndWriteBinaryFile.writeBinaryCarFile(VEHICLE_DAT_FILE,cars);
             System.out.println("Đã xóa xe ô tô có biển số : " + bienSoXe);
         }
+    }
+
+    @Override
+    public void update(Car car) {
+        List<Car> cars=ReadAndWriteBinaryFile.readBinatyCarFile(VEHICLE_DAT_FILE);
+        Car updateCar=null;
+        for (Car car1:cars){
+           if (car1.getBienKiemSoat().equalsIgnoreCase(updateCar.getBienKiemSoat())){
+               updateCar=car1;
+               break;
+           }
+        }
+        if (updateCar!=null){
+            updateCar.setHangSanXuat(car.getHangSanXuat());
+            updateCar.setNamSanXuat(car.getNamSanXuat());
+            updateCar.setChuSoHuu(car.getChuSoHuu());
+            updateCar.setKieuXe(car.getKieuXe());
+            updateCar.setSoChoNgoi(car.getSoChoNgoi());
+        }
+        ReadAndWriteBinaryFile.writeBinaryCarFile(VEHICLE_DAT_FILE,cars);
     }
 }

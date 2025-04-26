@@ -10,4 +10,5 @@ public interface ICarService {
     ArrayList<Car> findAll();
     void add(Car car);
     void delete(String bienSoXe);
+    void update(Car car);
 }
