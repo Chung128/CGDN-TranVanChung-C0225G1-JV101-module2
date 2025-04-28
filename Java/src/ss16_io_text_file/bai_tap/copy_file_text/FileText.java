@@ -5,7 +5,7 @@ import java.io.FileWriter;
 
 public class FileText {
     public static void main(String[] args) {
-        String tt = " Trần Văn Chung";
+        String tt = "Chào cậu,Huỳnh Hà Diễm Uyên :v";
         try {
             FileWriter fw = new FileWriter("src/ss16_io_text_file/bai_tap/copy_file_text/data.csv.txt", true);
             BufferedWriter bw = new BufferedWriter(fw);
