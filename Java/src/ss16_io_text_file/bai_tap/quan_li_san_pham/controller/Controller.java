@@ -1,12 +1,10 @@
 package ss16_io_text_file.bai_tap.quan_li_san_pham.controller;
 
-import ss16_io_text_file.bai_tap.quan_li_san_pham.entity.Product;
+import ss16_io_text_file.bai_tap.quan_li_san_pham.entity.Employee;
 import ss16_io_text_file.bai_tap.quan_li_san_pham.service.ServiceProduct;
 import ss16_io_text_file.bai_tap.quan_li_san_pham.view.ViewProduct;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.Scanner;
 
 public class Controller {
@@ -31,22 +29,22 @@ public class Controller {
                 switch (chose) {
                     case 1:
                         System.out.println("Danh sách sản phẩm : ");
-                        ArrayList<Product> productLists = serviceProduct.findAll();
+                        ArrayList<Employee> productLists = serviceProduct.findAll();
                         ViewProduct.displayProduct(productLists);
                         break;
                     case 2:
-                        Product productList = ViewProduct.inputDataProduct();
+                        Employee productList = ViewProduct.inputDataProduct();
                         serviceProduct.add(productList);
                         System.out.println();
                         System.out.println("Danh sách sản phẩm : ");
-                        ArrayList<Product> product = serviceProduct.findAll();
+                        ArrayList<Employee> product = serviceProduct.findAll();
                         ViewProduct.displayProduct(product);
                         break;
                     case 3:
-                        Product productList1 = ViewProduct.inputIdToEdit();
+                        Employee productList1 = ViewProduct.inputIdToEdit();
                         serviceProduct.edit(productList1);
                         System.out.println("Danh sách sản phẩm : ");
-                        ArrayList<Product> productLists1 = serviceProduct.findAll();
+                        ArrayList<Employee> productLists1 = serviceProduct.findAll();
                         ViewProduct.displayProduct(productLists1);
                         break;
                     case 4:
@@ -59,7 +57,7 @@ public class Controller {
                         break;
                     case 6:
                         do {
-                            ArrayList<Product> newList = serviceProduct.findAll();
+                            ArrayList<Employee> newList = serviceProduct.findAll();
                             System.out.print("bạn muốn sắp xếp tăng hay giảm : ");
                             int chose1 = scanner.nextInt();
                             if (chose1 == 1 || chose1 == 2 || chose1 == 3) {

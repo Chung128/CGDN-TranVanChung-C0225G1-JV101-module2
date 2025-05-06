@@ -1,7 +1,7 @@
 package ss16_io_text_file.bai_tap.quan_li_san_pham.service;
 
 
-import ss16_io_text_file.bai_tap.quan_li_san_pham.entity.Product;
+import ss16_io_text_file.bai_tap.quan_li_san_pham.entity.Employee;
 import ss16_io_text_file.bai_tap.quan_li_san_pham.repository.IRepoProduct;
 import ss16_io_text_file.bai_tap.quan_li_san_pham.repository.RepoProduct;
 
@@ -11,17 +11,17 @@ public class ServiceProduct implements IServiceProduct {
     private IRepoProduct products = new RepoProduct();
 
     @Override
-    public ArrayList<Product> findAll() {
+    public ArrayList<Employee> findAll() {
         return products.findAll();
     }
 
     @Override
-    public void add(Product productList) {
+    public void add(Employee productList) {
         products.addProduct(productList);
     }
 
     @Override
-    public void edit(Product productList) {
+    public void edit(Employee productList) {
         products.editProduct(productList);
     }
 

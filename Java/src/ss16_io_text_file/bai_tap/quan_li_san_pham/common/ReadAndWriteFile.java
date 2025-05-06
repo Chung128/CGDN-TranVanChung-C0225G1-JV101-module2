@@ -1,6 +1,6 @@
 package ss16_io_text_file.bai_tap.quan_li_san_pham.common;
 
-import ss16_io_text_file.bai_tap.quan_li_san_pham.entity.Product;
+import ss16_io_text_file.bai_tap.quan_li_san_pham.entity.Employee;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -20,8 +20,8 @@ public class ReadAndWriteFile {
     }
 
     //phương thức đọc
-    public static List<Product> readFile(String fileName) {
-        List<Product> stringList = new ArrayList<>();
+    public static List<Employee> readFile(String fileName) {
+        List<Employee> stringList = new ArrayList<>();
         File file = new File(fileName);
         try(FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr)){
@@ -34,7 +34,7 @@ public class ReadAndWriteFile {
                 int id=Integer.parseInt(infor[0].trim());   //dùng trim để bỏ khoảng trắng 2 đầu tránh lỗi
                 double price=Double.parseDouble(infor[1].trim());
                 String name=infor[2].trim();
-                stringList.add(new Product(id, name, price));
+                stringList.add(new Employee(id, name, price));
             }
         } catch (IOException e) {
             System.out.println("Lỗi đọc file .");

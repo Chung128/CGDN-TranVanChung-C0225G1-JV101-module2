@@ -1,8 +1,8 @@
-package case_study_furama.entity;
+package case_study_furama.model;
 
 import java.util.Arrays;
 
-public class Facility {
+public abstract class Facility {
     private int serviceId;
     private String serviceName;
     private double useArea;

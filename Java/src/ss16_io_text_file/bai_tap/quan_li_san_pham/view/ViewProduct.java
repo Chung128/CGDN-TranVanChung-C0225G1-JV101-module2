@@ -1,6 +1,6 @@
 package ss16_io_text_file.bai_tap.quan_li_san_pham.view;
 
-import ss16_io_text_file.bai_tap.quan_li_san_pham.entity.Product;
+import ss16_io_text_file.bai_tap.quan_li_san_pham.entity.Employee;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class ViewProduct {
     private static Scanner scanner = new Scanner(System.in);
 
-    public static void displayProduct(ArrayList<Product> productLists) {
+    public static void displayProduct(ArrayList<Employee> productLists) {
         for (int i = 0; i < productLists.size(); i++) {
             if (productLists.get(i) != null) {
                 System.out.println(productLists.get(i));
@@ -18,14 +18,14 @@ public class ViewProduct {
         }
     }
 
-    public static Product inputDataProduct() {
+    public static Employee inputDataProduct() {
         System.out.print("Nhập mã hàng ");
         int id = Integer.parseInt(scanner.nextLine());
         System.out.print("Nhập giá bán ");
         double price = Double.parseDouble(scanner.nextLine());
         System.out.print("Nhập tên hàng ");
         String name = scanner.nextLine();
-        Product productList = new Product(id, name, price);
+        Employee productList = new Employee(id, name, price);
         return productList;
     }
 
@@ -35,14 +35,14 @@ public class ViewProduct {
         return id;
     }
 
-    public static Product inputIdToEdit() {
+    public static Employee inputIdToEdit() {
         System.out.println("Nhập mã sản phẩm ");
         int id = Integer.parseInt(scanner.nextLine());
         System.out.print("Nhập giá bán ");
         double price = Double.parseDouble(scanner.nextLine());
         System.out.print("Nhập tên hàng ");
         String name = scanner.nextLine();
-        Product productList = new Product(id, name, price);
+        Employee productList = new Employee(id, name, price);
         return productList;
     }
 

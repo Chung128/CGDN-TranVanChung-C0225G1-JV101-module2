@@ -1,7 +1,7 @@
 package ss16_io_text_file.bai_tap.quan_li_san_pham.repository;
 
 import ss16_io_text_file.bai_tap.quan_li_san_pham.common.ReadAndWriteFile;
-import ss16_io_text_file.bai_tap.quan_li_san_pham.entity.Product;
+import ss16_io_text_file.bai_tap.quan_li_san_pham.entity.Employee;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -12,24 +12,24 @@ public class RepoProduct implements IRepoProduct {
     private final String NEW_FILE = "D:\\codegym\\module2\\module2\\Java\\src\\ss16_io_text_file\\bai_tap\\quan_li_san_pham\\data\\search_product";
     private final boolean APPEND = true;
     private final boolean NOAPPEND = false;
-    private static List<Product> products = new ArrayList<>();
+    private static List<Employee> products = new ArrayList<>();
 
     @Override
-    public ArrayList<Product> findAll() {
-        List<Product> productList = ReadAndWriteFile.readFile(PRODUCT_FILE);
+    public ArrayList<Employee> findAll() {
+        List<Employee> productList = ReadAndWriteFile.readFile(PRODUCT_FILE);
         return new ArrayList<>(productList);
     }
 
     @Override
-    public void addProduct(Product product) {
+    public void addProduct(Employee product) {
         ReadAndWriteFile.writeFile(PRODUCT_FILE, product.getInfoToCSV(), APPEND);
         RepoProduct.products.add(product);
     }
 
     @Override
-    public void editProduct(Product product) {
-        List<Product> lists = findAll();
-        for (Product product1 : lists) {
+    public void editProduct(Employee product) {
+        List<Employee> lists = findAll();
+        for (Employee product1 : lists) {
             if (product1.getId() == product.getId()) {
                 product1.setPrice(product.getPrice());
                 product1.setName(product.getName());
@@ -37,14 +37,14 @@ public class RepoProduct implements IRepoProduct {
             }
         }
         ReadAndWriteFile.clearFile(PRODUCT_FILE);
-        for (Product p : lists) {
+        for (Employee p : lists) {
             ReadAndWriteFile.writeFile(PRODUCT_FILE, p.getInfoToCSV(), APPEND);
         }
     }
 
     @Override
     public void deleteProduct(int id) {
-        List<Product> list = findAll();
+        List<Employee> list = findAll();
         for (int i = 0; i < list.size(); i++) {
             if (id == list.get(i).getId()) {
                 list.remove(i);
@@ -54,7 +54,7 @@ public class RepoProduct implements IRepoProduct {
                 System.out.println("Không tìm thấy tên sản phẩm .");
             }
         }
-        for (Product p : list) {
+        for (Employee p : list) {
             ReadAndWriteFile.writeFile(PRODUCT_FILE, p.getInfoToCSV(), NOAPPEND);
         }
 
@@ -62,9 +62,9 @@ public class RepoProduct implements IRepoProduct {
 
     @Override
     public void searchProduct(String name) {
-        List<Product> list = findAll();
-        List<Product> resultList = new ArrayList<>();
-        for (Product productList : list) {
+        List<Employee> list = findAll();
+        List<Employee> resultList = new ArrayList<>();
+        for (Employee productList : list) {
             if (productList.getName().equalsIgnoreCase(name)) {
                 resultList.add(productList);
             }
@@ -74,7 +74,7 @@ public class RepoProduct implements IRepoProduct {
         } else {
             System.out.println("Sản phẩm cần tìm là : " + resultList);
             ReadAndWriteFile.clearFile(NEW_FILE);   //xóa nội dung trong file hiển thị tìm kiếm nếu có
-            for (Product p : resultList) {
+            for (Employee p : resultList) {
                 ReadAndWriteFile.writeFile(NEW_FILE, p.getInfoToCSV(), APPEND);
             }
             System.out.println("Đã ghi kết quả tìm kếm vào file : " + NEW_FILE);
@@ -83,10 +83,10 @@ public class RepoProduct implements IRepoProduct {
 
     @Override
     public void sortProductAscending() {
-        List<Product> products = findAll();
-        products.sort(Comparator.comparingDouble(Product::getPrice));
+        List<Employee> products = findAll();
+        products.sort(Comparator.comparingDouble(Employee::getPrice));
         ReadAndWriteFile.clearFile(NEW_FILE); //Xóa hết dữ liệu trong file mới
-        for (Product p : products) {
+        for (Employee p : products) {
             ReadAndWriteFile.writeFile(NEW_FILE, p.getInfoToCSV(), APPEND);
         }
         System.out.println("Đã sắp xếp tăng dần .");
@@ -94,10 +94,10 @@ public class RepoProduct implements IRepoProduct {
 
     @Override
     public void sortProductDescending() {
-        List<Product> products = findAll();
-        products.sort(Comparator.comparingDouble(Product::getPrice).reversed());
+        List<Employee> products = findAll();
+        products.sort(Comparator.comparingDouble(Employee::getPrice).reversed());
         ReadAndWriteFile.clearFile(NEW_FILE); //Xóa hết dữ liệu trong file mới
-        for (Product p : products) {
+        for (Employee p : products) {
             ReadAndWriteFile.writeFile(NEW_FILE, p.getInfoToCSV(), APPEND);
         }
         System.out.println("Đã sắp xếp giảm dần .");
