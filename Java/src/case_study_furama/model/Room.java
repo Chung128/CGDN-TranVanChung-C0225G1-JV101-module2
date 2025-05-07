@@ -3,8 +3,8 @@ package case_study_furama.model;
 public class Room extends Facility {
     private String freeService;
 
-    public Room(int serviceId, String serviceName, double useArea, double price, int peoples, String freeService) {
-        super(serviceId, serviceName, useArea, price, peoples);
+    public Room(String serviceId, String serviceName, double useArea, double price, int peoples,String rentalRoom, String freeService) {
+        super(serviceId, serviceName, useArea, price, peoples,rentalRoom);
         this.freeService = freeService;
     }
 

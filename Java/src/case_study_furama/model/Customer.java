@@ -1,33 +1,34 @@
 package case_study_furama.model;
 
 import java.time.LocalDate;
-import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class Customer extends Persons {
-    private int idCustomer;
-    private String[] typesOfCustomer = {"Diamond", "Platinum", "Gold", "Silver", "Member"};
+    private String idCustomer;
+    private String typesOfCustomer;
     private String address;
 
-    public Customer(String name, LocalDate birthDate, String gender, String IDCard, String phoneNumber, String email, int id, String[] typesOfCustomer, String address) {
+    public Customer(String name, LocalDate birthDate, String gender, String IDCard, String phoneNumber, String email, String id, String typesOfCustomer, String address) {
         super(name, birthDate, gender, IDCard, phoneNumber, email);
         this.idCustomer = id;
         this.typesOfCustomer = typesOfCustomer;
         this.address = address;
     }
 
-    public int getIdCustomer() {
+    public String getIdCustomer() {
         return idCustomer;
     }
 
-    public void setIdCustomer(int idCustomer) {
+    public void setIdCustomer(String idCustomer) {
         this.idCustomer = idCustomer;
     }
 
-    public String[] getTypesOfCustomer() {
+    public String getTypesOfCustomer() {
         return typesOfCustomer;
     }
 
-    public void setTypesOfCustomer(String[] typesOfCustomer) {
+    public void setTypesOfCustomer(String typesOfCustomer) {
         this.typesOfCustomer = typesOfCustomer;
     }
 
@@ -42,9 +43,14 @@ public class Customer extends Persons {
     @Override
     public String toString() {
         return "Customer{" +
-                " id= " + idCustomer +
-                " typesOfCustomer= " + Arrays.toString(typesOfCustomer) +
+                super.toString()+
+                " id customer= " + idCustomer +
+                " types of customer= " + typesOfCustomer +
                 " address= " + address +
                 '}';
+    }
+    public List<String> getInfotoCustomer(){
+        return Collections.singletonList(super.getInfoToPerson() + "," + getIdCustomer() + ","
+                + getTypesOfCustomer() + "," + getAddress());
     }
 }

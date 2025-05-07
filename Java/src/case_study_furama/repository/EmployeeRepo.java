@@ -32,7 +32,7 @@ public class EmployeeRepo implements IEmployeeRepo {
     @Override
     public void addNewEmployee(Employee employee) {
         List<Employee> employees = new ArrayList<>();
-        ReadAndWriteFile.writeFileToCSV(EMPLOYEE_FILE, employee.getInforToEmployee(), NOAPPEND);
+        ReadAndWriteFile.writeFileToCSV(EMPLOYEE_FILE, employee.getInforToEmployee(), APPEND);
         employees.add(employee);
     }
 

@@ -23,8 +23,8 @@ public class Employee extends Persons {
         return idEmployee;
     }
 
-    public void setIdEmployee(int idEmployee) {
-        this.idEmployee = String.valueOf(idEmployee);
+    public void setIdEmployee(String idEmployee) {
+        this.idEmployee = idEmployee;
     }
 
     public String getEducationLevel() {
@@ -54,9 +54,9 @@ public class Employee extends Persons {
     @Override
     public String toString() {
         return "Employee{" +
-                super.toString()+
-                " idEmployee= " + idEmployee +
-                " educationLevel= " + educationLevel +
+                super.toString() +
+                " id employee= " + idEmployee +
+                " education level= " + educationLevel +
                 " position= " + position +
                 " salary= " + salary +
                 '}';

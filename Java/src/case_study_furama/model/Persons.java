@@ -73,12 +73,12 @@ public abstract class Persons {
 
     @Override
     public String toString() {
-        return "Persons {" +
+        return " {" +
                 " name= " + name +
-                " birthDate= " + birthDate +
+                " birth date= " + birthDate +
                 " gender= " + gender +
                 " IDCard= " + IDCard +
-                " phoneNumber= " + phoneNumber +
+                " phone number= " + phoneNumber +
                 " email= " + email +
                 '}';
     }

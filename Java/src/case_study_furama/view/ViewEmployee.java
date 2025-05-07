@@ -1,5 +1,6 @@
 package case_study_furama.view;
 
+import case_study_furama.model.Customer;
 import case_study_furama.model.Employee;
 
 import java.time.DateTimeException;
@@ -11,7 +12,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ViewPerson {
+public class ViewEmployee {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void displayEmployee(ArrayList<Employee> employees) {
@@ -26,7 +27,8 @@ public class ViewPerson {
 
     public static Employee inputDataEmployee() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        String regexName = "^[A-Z][a-z]*(\\s[A-Z][a-z]*)*$";
+       // String regexName = "^[A-Z][a-z]*(\\s[A-Z][a-z]*)*$";
+        String regexName="^[A-ZÁÀÉĂÂÊĐÔƠƯ][a-zăâđêôơưỳýỷỹỵàáảãạâầấẩẫậăằắẳẵặèéẻẽẹêềếểễệòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựìíỉĩị]*(\\s[A-ZĂÂÊÔƠƯ][a-zăâđêôơưỳýỷỹỵàáảãạâầấẩẫậăằắẳẵặèéẻẽẹêềếểễệòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựìíỉĩị]*)*$";
         String regexIdEmployee = "^NV-[0-9]{4}$";
         String regexIdCard = "^[0-9]{9,12}$";
         String regexPhoneNumber = "^0[0-9]{9}$";
@@ -53,7 +55,7 @@ public class ViewPerson {
 
         LocalDate birthDate = null;
         while (true) {
-            System.out.print("Enter employee (yyyy-MM-dd)");
+            System.out.print("Enter employee birth date (yyyy-MM-dd)");
             String input = scanner.nextLine();
             try {
                 birthDate = LocalDate.parse(input, formatter);
@@ -192,7 +194,5 @@ public class ViewPerson {
         return employee;
     }
 
-//    public static Employee inputIdToEdit() {
 //
-//    }
 }

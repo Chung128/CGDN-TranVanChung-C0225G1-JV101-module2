@@ -1,38 +1,32 @@
 package case_study_furama.controller;
 
-import java.util.Scanner;
+import case_study_furama.model.Customer;
+import case_study_furama.service.CustomerService;
+import case_study_furama.view.ViewCustomer;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CustomerManager {
-    private static Scanner scanner=new Scanner(System.in);
-   public static void displayListCustomers(){
-       do {
-           System.out.println(
-                           "select the function\n" +
-                           "1.\tDisplay list customers\n" +
-                           "2.\tAdd new customer\n" +
-                           "3.\tEdit customer\n" +
-                           "4.\tReturn main menu\n");
-           try {
-               int chose =scanner.nextInt();
-               if (chose>=1&&chose<=4){
-                   switch (chose){
-                       case 1:
-                       case 2:
-                       case 3:
-                       case 4:return;
-                   }
-               }else {
-                   System.out.println("Select the function again.");
-               }
-           } catch (Exception e) {
-               System.out.println("Errors: please enter an integer.");
-           }
-       }while (true);
-   }
-    public static void addNewCustomer(){
 
+    public static void displayListCustomers() {
+        CustomerService customerService = new CustomerService();
+        System.out.println("Display list customer.");
+        List<Customer> customers = customerService.findAll();
+        ViewCustomer.displayEmployee((ArrayList<Customer>) customers);
     }
-    public static void editCustomer(){
 
+    public static void addNewCustomer() {
+        CustomerService customerService = new CustomerService();
+        System.out.println("add new customer.");
+        Customer customer = ViewCustomer.inputDataCustomer();
+        customerService.add(customer);
+    }
+
+    public static void editCustomer() {
+        CustomerService customerService = new CustomerService();
+        System.out.println("update customer.");
+        Customer customer = ViewCustomer.inputDataCustomer();
+        customerService.add(customer);
     }
 }

@@ -1,31 +1,34 @@
 package case_study_furama.model;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public abstract class Facility {
-    private int serviceId;
+    private String serviceId;
     private String serviceName;
     private double useArea;
     private double price;
     private int peoples;
-    private final String[] RENTAL_ROOM={"year","month","day","hour"};
+    private String rentalRoom; //{"year","month","day","hour"};
 
     public Facility() {
     }
 
-    public Facility(int serviceId, String serviceName, double useArea, double price, int peoples) {
+    public Facility(String serviceId, String serviceName, double useArea, double price, int peoples, String rentalRoom) {
         this.serviceId = serviceId;
         this.serviceName = serviceName;
         this.useArea = useArea;
         this.price = price;
         this.peoples = peoples;
+        this.rentalRoom = rentalRoom;
     }
 
-    public int getServiceId() {
+    public String getServiceId() {
         return serviceId;
     }
 
-    public void setServiceId(int serviceId) {
+    public void setServiceId(String serviceId) {
         this.serviceId = serviceId;
     }
 
@@ -61,8 +64,12 @@ public abstract class Facility {
         this.peoples = peoples;
     }
 
-    public String[] getRENTAL_ROOM() {
-        return RENTAL_ROOM;
+    public String getRentalRoom() {
+        return rentalRoom;
+    }
+
+    public void setRentalRoom(String rentalRoom) {
+        this.rentalRoom = rentalRoom;
     }
 
     @Override
@@ -73,7 +80,12 @@ public abstract class Facility {
                 " useArea= " + useArea +
                 " price= " + price +
                 " peoples= " + peoples +
-                " RENTAL_ROOM= " + Arrays.toString(RENTAL_ROOM) +
+                " rentalRoom= " + rentalRoom +
                 '}';
+    }
+
+    public List<String> getInforToFacility() {
+        return Collections.singletonList(getServiceId() + "," + getServiceName() + "," + getUseArea()
+                + "," + getPrice() + "," + getPeoples() + "," + getRentalRoom());
     }
 }

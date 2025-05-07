@@ -1,12 +1,15 @@
 package case_study_furama.model;
 
+import java.util.Collections;
+import java.util.List;
+
 public class Villa extends Facility {
     private String roomStandards;
     private double poolArea;
     private int floor;
 
-    public Villa(int serviceId, String serviceName, double useArea, double price, int peoples, String roomStandards, double poolArea, int floor) {
-        super(serviceId, serviceName, useArea, price, peoples);
+    public Villa(String serviceId, String serviceName, double useArea, double price, int peoples,String rentalRoom, String roomStandards, double poolArea, int floor) {
+        super(serviceId, serviceName, useArea, price, peoples,rentalRoom);
         this.roomStandards = roomStandards;
         this.poolArea = poolArea;
         this.floor = floor;
@@ -40,9 +43,13 @@ public class Villa extends Facility {
     @Override
     public String toString() {
         return "Villa {" +
+                super.getInforToFacility()+
                 " roomStandards= " + roomStandards +
                 " poolArea= " + poolArea +
                 " floor= " + floor +
                 '}';
+    }
+    public List<String> getInforToVilla(){
+        return Collections.singletonList(super.getInforToFacility() + "," + getRoomStandards() + "," + getPoolArea() + "," + floor);
     }
 }
